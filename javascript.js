@@ -1,5 +1,5 @@
-const DISCOUNT_PERCENTAGE = 10; // 10% discount
-const TAX_PERCENTAGE = 5; // 5% tax
+const DISCOUNT_PERCENTAGE = 25; // 25% discount
+const TAX_PERCENTAGE = 2; // 2% tax
 
 function purchaseBook(title, author, price, discountPercentage, taxPercentage, stock, purchased) {
   // Check if book is in stock
@@ -43,5 +43,4 @@ function purchaseBook(title, author, price, discountPercentage, taxPercentage, s
   }
 }
 
-// Example usage
 purchaseBook("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", 40_000, DISCOUNT_PERCENTAGE, TAX_PERCENTAGE, 10, 2);
