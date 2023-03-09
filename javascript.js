@@ -1,5 +1,5 @@
-const DISCOUNT_PERCENTAGE = 10; // 10% discount
-const TAX_PERCENTAGE = 5; // 5% tax
+const DISCOUNT_PERCENTAGE = 20; // 20% discount
+const TAX_PERCENTAGE = 10; // 10% tax
 
 function purchaseBook(title, author, price, stock, purchased, term) {
   // Check if book is in stock
@@ -44,7 +44,7 @@ function purchaseBook(title, author, price, stock, purchased, term) {
   } else {
     console.log(`"${title}" by ${author} is out of stock.`);
   }
-  
+
   console.log(`Price per term: ${pricePerTerm}`);
 }
 
