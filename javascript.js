@@ -1,7 +1,7 @@
-const DISCOUNT_PERCENTAGE = 25; // 25% discount
-const TAX_PERCENTAGE = 2; // 2% tax
+const DISCOUNT_PERCENTAGE = 10; // 10% discount
+const TAX_PERCENTAGE = 5; // 5% tax
 
-function purchaseBook(title, author, price, discountPercentage, taxPercentage, stock, purchased) {
+function purchaseBook(title, author, price, stock, purchased, term) {
   // Check if book is in stock
   if (purchased > stock) {
     console.log(`Sorry, only ${stock} copies of "${title}" by ${author} are available.`);
@@ -9,15 +9,18 @@ function purchaseBook(title, author, price, discountPercentage, taxPercentage, s
   }
 
   // Calculate discount and price after discount
-  const discountAmount = price * (discountPercentage / 100);
+  const discountAmount = price * (DISCOUNT_PERCENTAGE / 100);
   const priceAfterDiscount = price - discountAmount;
 
   // Calculate tax and price after tax
-  const taxAmount = priceAfterDiscount * (taxPercentage / 100);
+  const taxAmount = priceAfterDiscount * (TAX_PERCENTAGE / 100);
   const priceAfterTax = priceAfterDiscount + taxAmount;
 
   // Calculate total price
   const totalPrice = purchased * priceAfterTax;
+
+  // Calculate price per term
+  const pricePerTerm = totalPrice / term;
 
   // Update stock
   stock -= purchased;
@@ -26,10 +29,10 @@ function purchaseBook(title, author, price, discountPercentage, taxPercentage, s
   console.log(`Title: ${title}`);
   console.log(`Author: ${author}`);
   console.log(`Price: Rp ${price}`);
-  console.log(`Discount: ${discountPercentage}%`);
+  console.log(`Discount: ${DISCOUNT_PERCENTAGE}%`);
   console.log(`Discount amount: Rp ${discountAmount}`);
   console.log(`Price after discount: Rp ${priceAfterDiscount}`);
-  console.log(`Tax: ${taxPercentage}%`);
+  console.log(`Tax: ${TAX_PERCENTAGE}%`);
   console.log(`Tax amount: Rp ${taxAmount}`);
   console.log(`Price after tax: Rp ${priceAfterTax}`);
   console.log(`Purchased: ${purchased}`);
@@ -41,6 +44,9 @@ function purchaseBook(title, author, price, discountPercentage, taxPercentage, s
   } else {
     console.log(`"${title}" by ${author} is out of stock.`);
   }
+  
+  console.log(`Price per term: ${pricePerTerm}`);
 }
 
-purchaseBook("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", 40_000, DISCOUNT_PERCENTAGE, TAX_PERCENTAGE, 10, 2);
+
+purchaseBook("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", 40_000, 10, 2, 6);
